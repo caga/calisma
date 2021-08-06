@@ -12,9 +12,9 @@ class QuotesSpider(scrapy.Spider):
         quoteItem=QuoteItem()
 
         for quote in response.css('div.quote'):
-            item['text']=quote.css('span.text::text').get()
-            item['author']=quote.css('small.author::text').get()
-            yield item
+            quoteItem['text']=quote.css('span.text::text').get()
+            quoteItem['author']=quote.css('small.author::text').get()
+            yield quoteItem
             # yield {
                 # 'text': quote.css('span.text::text').get(),
                 # 'author': quote.css('small.author::text').get(),
